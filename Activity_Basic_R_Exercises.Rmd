@@ -47,20 +47,16 @@ for (i in 3:10) {
 print(numbers)
 ```
 
-
+```{r}
 # 6
 vec_a <- c(10, 20, 30, 4, 50, -60)
-vec_b <- c(10, 20, 30, 4, 50, -60)
 # min and max vector a
 max_a <- max(vec_a)
 min_a <- min(vec_a)
 min_max_a <- c(max_a, min_a)
 print(min_max_a)
-# min and max vector b
-max_b <- max(vec_b)
-min_b <- min(vec_b)
-min_max_b <- c(max_b, min_b)
-print(min_max_b)
+```
+
 
 # 7
 multiplica <- function(vec1, vec2) {
