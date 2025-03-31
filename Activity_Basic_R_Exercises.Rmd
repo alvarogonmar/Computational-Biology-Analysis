@@ -30,11 +30,13 @@ sum <- sum(51:91)
 print(sum)
 ```
 
-
+```{r}
 # 4
 random_v <- sample(-100:50, 10, replace = TRUE)
 print(random_v)
+```
 
+```{r}
 # 5
 numbers <- numeric(10)
 numbers[1] <- numbers[2] <- 1  # Los primeros dos números son 1
@@ -43,6 +45,8 @@ for (i in 3:10) {
   numbers[i] <- numbers[i-1] + numbers[i-2]  # Fibonacci
 }
 print(numbers)
+```
+
 
 # 6
 vec_a <- c(10, 20, 30, 4, 50, -60)
