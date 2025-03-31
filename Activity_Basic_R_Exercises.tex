@@ -1,0 +1,271 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Activity\_Basic\_R\_Exercises},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Activity\_Basic\_R\_Exercises}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{13}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10 11 13 -1  6  3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 2}
+\NormalTok{media }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(x) }\CommentTok{\# Media}
+\NormalTok{des\_x }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(x) }\CommentTok{\# Desviacion estandar}
+\NormalTok{var\_x }\OtherTok{\textless{}{-}} \FunctionTok{var}\NormalTok{(x) }\CommentTok{\# Varianza}
+
+\NormalTok{est.x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(media, des\_x, var\_x)}
+\FunctionTok{print}\NormalTok{(est.x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  7.000000  5.329165 28.400000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#3}
+\NormalTok{sequence }\OtherTok{\textless{}{-}} \DecValTok{20}\SpecialCharTok{:}\DecValTok{50}
+\FunctionTok{print}\NormalTok{(sequence)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44
+## [26] 45 46 47 48 49 50
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean\_2 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\DecValTok{20}\SpecialCharTok{:}\DecValTok{60}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(mean\_2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 40
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sum }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\DecValTok{51}\SpecialCharTok{:}\DecValTok{91}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(sum)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2911
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 4}
+\NormalTok{random\_v }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{100}\SpecialCharTok{:}\DecValTok{50}\NormalTok{, }\DecValTok{10}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(random\_v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] -88 -60  25 -88 -57 -45 -86 -66  25 -17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 5}
+\NormalTok{numbers }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{numbers[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ numbers[}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{1}  \CommentTok{\# Los primeros dos números son 1}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{3}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) \{}
+\NormalTok{  numbers[i] }\OtherTok{\textless{}{-}}\NormalTok{ numbers[i}\DecValTok{{-}1}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ numbers[i}\DecValTok{{-}2}\NormalTok{]  }\CommentTok{\# Fibonacci}
+\NormalTok{\}}
+\FunctionTok{print}\NormalTok{(numbers)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1  1  2  3  5  8 13 21 34 55
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 6}
+\NormalTok{vec\_a }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{50}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{60}\NormalTok{)}
+\CommentTok{\# min and max vector a}
+\NormalTok{max\_a }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(vec\_a)}
+\NormalTok{min\_a }\OtherTok{\textless{}{-}} \FunctionTok{min}\NormalTok{(vec\_a)}
+\NormalTok{min\_max\_a }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(max\_a, min\_a)}
+\FunctionTok{print}\NormalTok{(min\_max\_a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  50 -60
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 7}
+\NormalTok{multiplica }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(vec1, vec2) \{}
+\NormalTok{  result }\OtherTok{\textless{}{-}}\NormalTok{ vec1 }\SpecialCharTok{*}\NormalTok{ vec2}
+  \FunctionTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+\NormalTok{(}\FunctionTok{multiplica}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 30 80
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 8}
+\NormalTok{counter }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(vec, valor) \{}
+\NormalTok{  result }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(vec }\SpecialCharTok{==}\NormalTok{ valor)}
+  \FunctionTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+
+\FunctionTok{print}\NormalTok{(}\FunctionTok{counter}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{5}\NormalTok{), }\DecValTok{7}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 9}
+\NormalTok{enesimo }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(vec, n) \{}
+  \FunctionTok{return}\NormalTok{(vec[}\FunctionTok{seq}\NormalTok{(n, }\FunctionTok{length}\NormalTok{(vec), }\AttributeTok{by =}\NormalTok{ n)])}
+\NormalTok{\}}
+
+\NormalTok{v }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{100}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{enesimo}\NormalTok{(v, }\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   5  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85  90  95
+## [20] 100
+\end{verbatim}
+
+\end{document}

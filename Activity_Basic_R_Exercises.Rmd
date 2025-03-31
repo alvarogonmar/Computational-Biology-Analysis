@@ -1,18 +1,20 @@
 ---
 title: "Activity_Basic_R_Exercises"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 ```{r}
 # 1
-x <- c(10, 11, 13, -1, 6, 3)
-print(x)
+vec <- c(10, 11, 13, -1, 6, 3)
+print(vec)
 ```
 
 ```{r}
 # 2
-media <- mean(x) # Media
-des_x <- sd(x) # Desviacion estandar
-var_x <- var(x) # Varianza
+media <- mean(vec) # Media
+des_x <- sd(vec) # Desviacion estandar
+var_x <- var(vec) # Varianza
 
 est.x <- c(media, des_x, var_x)
 print(est.x)
@@ -39,7 +41,7 @@ print(random_v)
 ```{r}
 # 5
 numbers <- numeric(10)
-numbers[1] <- numbers[2] <- 1  # Los primeros dos números son 1
+numbers[1] <- numbers[2] <- 1
 
 for (i in 3:10) {
   numbers[i] <- numbers[i-1] + numbers[i-2]  # Fibonacci
