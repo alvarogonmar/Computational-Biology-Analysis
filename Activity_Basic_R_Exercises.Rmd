@@ -25,3 +25,6 @@ print(mean_2)
 sum <- sum(51:91)
 print(sum)
 
+# 4
+random_v <- sample(-100:50, 10, replace = TRUE)
+print(random_v)
