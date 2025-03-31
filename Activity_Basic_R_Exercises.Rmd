@@ -3,11 +3,15 @@ title: "Activity_Basic_R_Exercises"
 output: html_document
 ---
 
-
+# 1
 x <- c(10, 11, 13, -1, 6, 3)
 print(x)
 
-mean(x) # Media
-sd(x) # Desviacion estandar
-var(x) # Varianza
+# 2
+media <- mean(x) # Media
+des_x <- sd(x) # Desviacion estandar
+var_x <- var(x) # Varianza
+
+est.x <- c(media, des_x, var_x)
+print(est.x)
 
