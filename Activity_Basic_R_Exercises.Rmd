@@ -15,3 +15,13 @@ var_x <- var(x) # Varianza
 est.x <- c(media, des_x, var_x)
 print(est.x)
 
+#3
+sequence <- 20:50
+print(sequence)
+
+mean_2 <- mean(20:60)
+print(mean_2)
+
+sum <- sum(51:91)
+print(sum)
+
