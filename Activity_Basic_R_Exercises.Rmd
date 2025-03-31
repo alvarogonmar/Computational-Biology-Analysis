@@ -28,3 +28,12 @@ print(sum)
 # 4
 random_v <- sample(-100:50, 10, replace = TRUE)
 print(random_v)
+
+# 5
+numbers <- numeric(10)
+numbers[1] <- numbers[2] <- 1  # Los primeros dos números son 1
+
+for (i in 3:10) {
+  numbers[i] <- numbers[i-1] + numbers[i-2]  # Fibonacci
+}
+print(numbers)
