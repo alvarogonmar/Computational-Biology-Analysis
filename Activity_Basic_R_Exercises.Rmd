@@ -2,11 +2,13 @@
 title: "Activity_Basic_R_Exercises"
 output: html_document
 ---
-
+```{r}
 # 1
 x <- c(10, 11, 13, -1, 6, 3)
 print(x)
+```
 
+```{r}
 # 2
 media <- mean(x) # Media
 des_x <- sd(x) # Desviacion estandar
@@ -14,6 +16,9 @@ var_x <- var(x) # Varianza
 
 est.x <- c(media, des_x, var_x)
 print(est.x)
+```
+
+
 
 #3
 sequence <- 20:50
@@ -41,3 +46,26 @@ print(numbers)
 # 6
 vec_a <- c(10, 20, 30, 4, 50, -60)
 vec_b <- c(10, 20, 30, 4, 50, -60)
+# min and max vector a
+max_a <- max(vec_a)
+min_a <- min(vec_a)
+min_max_a <- c(max_a, min_a)
+print(min_max_a)
+# min and max vector b
+max_b <- max(vec_b)
+min_b <- min(vec_b)
+min_max_b <- c(max_b, min_b)
+print(min_max_b)
+
+# 7
+multiplica <- function(vec1, vec2) {
+  result <- vec1 * vec2
+  return(result)
+}
+(multiplica(c(10, 20), c(3, 4)))
+
+# 8
+
+
+
+
