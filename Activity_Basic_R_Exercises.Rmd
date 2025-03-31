@@ -18,8 +18,7 @@ est.x <- c(media, des_x, var_x)
 print(est.x)
 ```
 
-
-
+```{r}
 #3
 sequence <- 20:50
 print(sequence)
@@ -29,6 +28,8 @@ print(mean_2)
 
 sum <- sum(51:91)
 print(sum)
+```
+
 
 # 4
 random_v <- sample(-100:50, 10, replace = TRUE)
