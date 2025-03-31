@@ -6,3 +6,8 @@ output: html_document
 
 x <- c(10, 11, 13, -1, 6, 3)
 print(x)
+
+mean(x) # Media
+sd(x) # Desviacion estandar
+var(x) # Varianza
+
