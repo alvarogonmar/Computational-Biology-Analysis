@@ -6,15 +6,15 @@ output:
 ---
 ```{r}
 # 1
-vec <- c(10, 11, 13, -1, 6, 3)
-print(vec)
+x <- c(10, 11, 13, -1, 6, 3)
+print(x)
 ```
 
 ```{r}
 # 2
-media <- mean(vec) # Media
-des_x <- sd(vec) # Desviacion estandar
-var_x <- var(vec) # Varianza
+media <- mean(x) # Media
+des_x <- sd(x) # Desviacion estandar
+var_x <- var(x) # Varianza
 
 est.x <- c(media, des_x, var_x)
 print(est.x)
@@ -40,13 +40,13 @@ print(random_v)
 
 ```{r}
 # 5
-numbers <- numeric(10)
-numbers[1] <- numbers[2] <- 1
+fb <- numeric(10)
+fb[1] <- fb[2] <- 1
 
 for (i in 3:10) {
-  numbers[i] <- numbers[i-1] + numbers[i-2]  # Fibonacci
+  fb[i] <- fb[i-1] + fb[i-2]  # Fibonacci
 }
-print(numbers)
+print(fb)
 ```
 
 ```{r}
@@ -71,12 +71,12 @@ multiplica <- function(vec1, vec2) {
 
 ```{r}
 # 8
-counter <- function(vec, valor) {
+cuenta <- function(vec, valor) {
   result <- sum(vec == valor)
   return(result)
 }
 
-print(counter(c(10, 20, 10, 7, 24, 7, 5), 7))
+print(cuenta(c(10, 20, 10, 7, 24, 7, 5), 7))
 ```
 ```{r}
 # 9
