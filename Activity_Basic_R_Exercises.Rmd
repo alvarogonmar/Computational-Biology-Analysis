@@ -1,9 +1,10 @@
 ---
 title: "Activity_Basic_R_Exercises"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
+#print(Names): Álvaro González Martínez A01646343 & Gael Adrián Cervantes López A01641482
 ```{r}
 # 1
 x <- c(10, 11, 13, -1, 6, 3)
@@ -81,7 +82,7 @@ print(cuenta(c(10, 20, 10, 7, 24, 7, 5), 7))
 ```{r}
 # 9
 enesimo <- function(vec, n) {
-  return(vec[seq(n, length(vec), by = n)])
+  return(vec[seq(1, length(vec), by = n)])
 }
 
 v <- 1:100
