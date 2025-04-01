@@ -381,7 +381,7 @@ print(sum)</code></pre>
 <pre class="r"><code># 4
 random_v &lt;- sample(-100:50, 10, replace = TRUE)
 print(random_v)</code></pre>
-<pre><code>##  [1]  37 -91  13 -19  41  24 -39 -73  35 -71</code></pre>
+<pre><code>##  [1]   1 -25 -15  22 -47 -68  -1 -31 -23 -98</code></pre>
 <pre class="r"><code># 5
 fb &lt;- numeric(10)
 fb[1] &lt;- fb[2] &lt;- 1
@@ -416,13 +416,12 @@ print(cuenta(c(10, 20, 10, 7, 24, 7, 5), 7))</code></pre>
 <pre><code>## [1] 2</code></pre>
 <pre class="r"><code># 9
 enesimo &lt;- function(vec, n) {
-  return(vec[seq(n, length(vec), by = n)])
+  return(vec[seq(1, length(vec), by = n)])
 }
 
 v &lt;- 1:100
 print(enesimo(v, 5))</code></pre>
-<pre><code>##  [1]   5  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85  90  95
-## [20] 100</code></pre>
+<pre><code>##  [1]  1  6 11 16 21 26 31 36 41 46 51 56 61 66 71 76 81 86 91 96</code></pre>
 
 
 
