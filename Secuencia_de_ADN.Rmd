@@ -4,21 +4,18 @@ output: html_document
 ---
 # 1. Replicación del ADN
 ```{r}
-# Función para replicar una cadena de ADN
 replicar_adn <- function(cadena) {
-# Definimos las bases complementarias
-complemento <- c(A = "T", T = "A", C = "G", G = "C")
-# Convertimos la cadena en un vector de letras
-cadena_vector <- strsplit(cadena, "")[[1]]
-# Creamos la cadena complementaria
-cadena_replicada <- sapply(cadena_vector, function(base) complemento[base])
-# Unimos la cadena complementaria para obtener el ADN replicado
-paste(cadena_replicada, collapse = "")
+  complemento <- c(A = "T", T = "A", C = "G", G = "C")
+  cadena_vector <- strsplit(cadena, "")[[1]]
+  cadena_replicada <- sapply(cadena_vector, function(base) complemento[base])
+  paste(cadena_replicada, collapse = "")
 }
-# Ejemplo de replicación
-cadena_adn <- "ATCG"
+
+# Cadena de ADN original
+cadena_adn <- "ATGCGTACGTTAGC"
+# Replicación del ADN
 cadena_replicada <- replicar_adn(cadena_adn)
-print(cadena_replicada) # Resultado: TAGC
+print(cadena_replicada)
 ```
 
 # 2. Transcripción del ADN (a ARN)
@@ -31,7 +28,7 @@ return(cadena_arn)
 }
 # Ejemplo de transcripción
 cadena_arn <- transcribir_adn_a_arn(cadena_adn)
-print(cadena_arn) # Resultado: AUCG
+print(cadena_arn)
 ```
 
 # 3. Traducción del ARN a proteínas
