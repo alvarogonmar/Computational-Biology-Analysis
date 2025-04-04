@@ -36,10 +36,12 @@ print(cadena_arn)
 # Función para traducir ARN a aminoácidos
 traducir_arn_a_aminoacidos <- function(cadena_arn) {
 # Mapa de codones a aminoácidos (simplificado)
-codones <- list(
-"AUC" = "Isoleucina", "UCG" = "Serina", "GCU" = "Alanina",
-"GCG" = "Alanina", "CUU" = "Leucina", "GAA" = "Glutamato"
-)
+  codones <- list(
+    "AUC" = "Isoleucina", "UCG" = "Serina", "GCU" = "Alanina",
+    "GCG" = "Alanina", "CUU" = "Leucina", "GAA" = "Glutamato",
+    "AUG" = "Metionina", "CGU" = "Arginina", "ACG" = "Treonina",
+    "UUA" = "Leucina"
+  )
 # Dividimos la cadena ARN en codones
 codones_arn <- strsplit(cadena_arn, "(?<=.{3})", perl = TRUE)[[1]]
 # Traducimos cada codón a su aminoácido
@@ -49,6 +51,8 @@ paste(proteina, collapse = "-")
 }
 # Ejemplo de traducción
 aminoacidos <- traducir_arn_a_aminoacidos(cadena_arn)
-print(aminoacidos) # Resultado: Isoleucina-Serina
+print(aminoacidos)
+
+
 ```
 
