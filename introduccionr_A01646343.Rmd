@@ -3,3 +3,20 @@ title: "introduccionr_A01646343"
 output: html_document
 ---
 
+# 1
+```{r}
+dna_generator <- function(n) {
+  bases <- c("A", "C", "T", "G")
+  
+  # Generar una secuencia aleatoria de longitud n
+  sequence <- sample(bases, n, replace = TRUE)
+  
+  # Unir las bases para formar la secuencia de ADN
+  return(paste(sequence, collapse = ""))
+}
+
+# Ejemplo de uso
+dna_sequence <- dna_generator(20)
+print(dna_sequence)
+
+```
