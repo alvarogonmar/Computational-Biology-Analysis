@@ -2,4 +2,56 @@
 title: "Secuencia_de_ADN"
 output: html_document
 ---
+# 1. Replicación del ADN
+```{r}
+# Función para replicar una cadena de ADN
+replicar_adn <- function(cadena) {
+# Definimos las bases complementarias
+complemento <- c(A = "T", T = "A", C = "G", G = "C")
+# Convertimos la cadena en un vector de letras
+cadena_vector <- strsplit(cadena, "")[[1]]
+# Creamos la cadena complementaria
+cadena_replicada <- sapply(cadena_vector, function(base) complemento[base])
+# Unimos la cadena complementaria para obtener el ADN replicado
+paste(cadena_replicada, collapse = "")
+}
+# Ejemplo de replicación
+cadena_adn <- "ATCG"
+cadena_replicada <- replicar_adn(cadena_adn)
+print(cadena_replicada) # Resultado: TAGC
+```
+
+# 2. Transcripción del ADN (a ARN)
+```{r}
+# Función para transcribir ADN a ARN
+transcribir_adn_a_arn <- function(cadena_adn) {
+# Cambiamos la T por U para crear ARN
+cadena_arn <- gsub("T", "U", cadena_adn)
+return(cadena_arn)
+}
+# Ejemplo de transcripción
+cadena_arn <- transcribir_adn_a_arn(cadena_adn)
+print(cadena_arn) # Resultado: AUCG
+```
+
+# 3. Traducción del ARN a proteínas
+```{r}
+# Función para traducir ARN a aminoácidos
+traducir_arn_a_aminoacidos <- function(cadena_arn) {
+# Mapa de codones a aminoácidos (simplificado)
+codones <- list(
+"AUC" = "Isoleucina", "UCG" = "Serina", "GCU" = "Alanina",
+"GCG" = "Alanina", "CUU" = "Leucina", "GAA" = "Glutamato"
+)
+# Dividimos la cadena ARN en codones
+codones_arn <- strsplit(cadena_arn, "(?<=.{3})", perl = TRUE)[[1]]
+# Traducimos cada codón a su aminoácido
+proteina <- sapply(codones_arn, function(codon) codones[[codon]])
+# Unimos los aminoácidos para formar la proteína
+paste(proteina, collapse = "-")
+}
+# Ejemplo de traducción
+aminoacidos <- traducir_arn_a_aminoacidos(cadena_arn)
+print(aminoacidos) # Resultado: Isoleucina-Serina
+```
 
