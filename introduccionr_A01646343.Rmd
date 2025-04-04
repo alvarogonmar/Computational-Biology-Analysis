@@ -16,7 +16,58 @@ dna_generator <- function(n) {
 }
 
 # Ejemplo de uso
-dna_sequence <- dna_generator(20)
+dna_sequence <- dna_generator(15)
 print(dna_sequence)
+
+```
+
+# 2
+```{r}
+dna_size <- function(sequence) {
+  size <- nchar(sequence)
+  return(size)
+}
+
+# Example usage
+size <- dna_size(dna_sequence)
+print(size)
+
+```
+
+# 3 
+```{r}
+base_percentage <- function(sequence) {
+  # Initialize counters for each base
+  A_count <- 0
+  T_count <- 0
+  C_count <- 0
+  G_count <- 0
+  
+  # Loop through each base in the sequence and count them
+  for (base in strsplit(sequence, NULL)[[1]]) {
+    if (base == "A") {
+      A_count <- A_count + 1
+    } else if (base == "T") {
+      T_count <- T_count + 1
+    } else if (base == "C") {
+      C_count <- C_count + 1
+    } else if (base == "G") {
+      G_count <- G_count + 1
+    }
+  }
+  
+  # Calculate the percentage of each base
+  size <- nchar(sequence)
+  A_percent <- (A_count / size) * 100
+  T_percent <- (T_count / size) * 100
+  C_percent <- (C_count / size) * 100
+  G_percent <- (G_count / size) * 100
+  
+  cat("Percentage of A: ", A_percent, "%\n")
+  cat("Percentage of T: ", T_percent, "%\n")
+  cat("Percentage of C: ", C_percent, "%\n")
+  cat("Percentage of G: ", G_percent, "%\n")
+}
+base_percentage(dna_sequence)
 
 ```
