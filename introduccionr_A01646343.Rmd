@@ -71,3 +71,80 @@ base_percentage <- function(sequence) {
 base_percentage(dna_sequence)
 
 ```
+# 4
+```{r}
+# Función para transcribir ADN a ARN
+transcribir_adn_a_arn <- function(cadena_adn) {
+  # Tabla
+  tabla <- c("G" = "C", "C" = "G", "T" = "A", "A" = "U")
+  
+  # Separar la cadena en caracteres
+  bases_adn <- strsplit(cadena_adn, "")[[1]]
+  
+  # Inicializar cadena ARN vacía
+  cadena_arn <- ""
+  
+  for (base in bases_adn) {
+    cadena_arn <- paste0(cadena_arn, tabla[base])
+  }
+  
+  return(cadena_arn)
+}
+
+cadena_arn <- transcribir_adn_a_arn(dna_sequence)
+print(cadena_arn)
+```
+# 5
+```{r}
+# Función para traducir ARN a aminoácidos
+traducir_arn_a_aminoacidos <- function(cadena_arn) {
+# Mapa de codones a aminoácidos (simplificado)
+  codones <- list(
+  "UUU" = "Fenilalanina", "UUC" = "Fenilalanina",
+  "UUA" = "Leucina",      "UUG" = "Leucina",
+  "CUU" = "Leucina",      "CUC" = "Leucina",
+  "CUA" = "Leucina",      "CUG" = "Leucina",
+  "AUU" = "Isoleucina",   "AUC" = "Isoleucina",
+  "AUA" = "Isoleucina",   "AUG" = "Metionina",  # Inicio
+  "GUU" = "Valina",       "GUC" = "Valina",
+  "GUA" = "Valina",       "GUG" = "Valina",
+
+  "UCU" = "Serina",       "UCC" = "Serina",
+  "UCA" = "Serina",       "UCG" = "Serina",
+  "CCU" = "Prolina",      "CCC" = "Prolina",
+  "CCA" = "Prolina",      "CCG" = "Prolina",
+  "ACU" = "Treonina",     "ACC" = "Treonina",
+  "ACA" = "Treonina",     "ACG" = "Treonina",
+  "GCU" = "Alanina",      "GCC" = "Alanina",
+  "GCA" = "Alanina",      "GCG" = "Alanina",
+
+  "UAU" = "Tirosina",     "UAC" = "Tirosina",
+  "UAA" = "STOP",         "UAG" = "STOP",
+  "CAU" = "Histidina",    "CAC" = "Histidina",
+  "CAA" = "Glutamina",    "CAG" = "Glutamina",
+  "AAU" = "Asparagina",   "AAC" = "Asparagina",
+  "AAA" = "Lisina",       "AAG" = "Lisina",
+  "GAU" = "Ácido aspártico", "GAC" = "Ácido aspártico",
+  "GAA" = "Ácido glutámico", "GAG" = "Ácido glutámico",
+
+  "UGU" = "Cisteína",     "UGC" = "Cisteína",
+  "UGA" = "STOP",         "UGG" = "Triptófano",
+  "CGU" = "Arginina",     "CGC" = "Arginina",
+  "CGA" = "Arginina",     "CGG" = "Arginina",
+  "AGU" = "Serina",       "AGC" = "Serina",
+  "AGA" = "Arginina",     "AGG" = "Arginina",
+  "GGU" = "Glicina",      "GGC" = "Glicina",
+  "GGA" = "Glicina",      "GGG" = "Glicina"
+  )
+# Dividimos la cadena ARN en codones
+codones_arn <- strsplit(cadena_arn, "(?<=.{3})", perl = TRUE)[[1]]
+# Traducimos cada codón a su aminoácido
+proteina <- sapply(codones_arn, function(codon) codones[[codon]])
+# Unimos los aminoácidos para formar la proteína
+paste(proteina, collapse = "-")
+}
+# Ejemplo de traducción
+aminoacidos <- traducir_arn_a_aminoacidos(cadena_arn)
+print(aminoacidos)
+```
+
