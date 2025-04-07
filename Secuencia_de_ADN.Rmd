@@ -2,6 +2,7 @@
 title: "Secuencia_de_ADN"
 output: html_document
 ---
+# name: Alvaro González Martínez A01646343
 # 1. Replicación del ADN
 ```{r}
 replicar_adn <- function(cadena) {
