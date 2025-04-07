@@ -150,9 +150,7 @@ print(aminoacidos)
 
 # 6 
 ```{r}
-# Función que construye la hebra inversa complementaria usando un ciclo for
 obtener_hebra_inversa <- function(hebra_directa) {
-  # Tabla de complementariedad
   complemento <- c("A" = "T", "T" = "A", "C" = "G", "G" = "C")
   
   hebra_inversa <- ""  # inicializamos cadena vacía
@@ -174,5 +172,32 @@ hebra_inversa <- obtener_hebra_inversa(hebra_directa)
 # Mostrar resultado
 cat("Hebra directa:  5'-", hebra_directa, "-3'\n", sep = "")
 cat("Hebra inversa:  3'-", hebra_inversa, "-5'\n", sep = "")
+```
+
+# 7
+```{r}
+hebra_complementaria <- function(hebra_directa) {
+  complemento <- c("A" = "T", "T" = "A", "C" = "G", "G" = "C")
+  
+  hebra_complementaria <- ""
+  
+  for (i in 1:nchar(hebra_directa)) {
+    base <- substr(hebra_directa, i, i)
+    base_comp <- complemento[base]
+    hebra_complementaria <- paste0(hebra_complementaria, base_comp)
+  }
+  
+  return(hebra_complementaria)
+}
+
+hebra_complementaria <- hebra_complementaria(hebra_directa)
+
+cat("Hebra directa:       5'-", hebra_directa, "-3'\n", sep = "")
+cat("Hebra complementaria:3'-", hebra_complementaria, "-5'\n", sep = "")
+```
+
+# 8 
+```{r}
+
 ```
 
