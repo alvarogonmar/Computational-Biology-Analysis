@@ -6,7 +6,7 @@ output: html_document
 # 1 Cargar paquete
 ```{r}
 # Cargar el paquete rentrez
-# install.packages("rentrez")  # Descomenta si no está instalado
+install.packages("rentrez")  # Descomenta si no está instalado
 library(rentrez)
 ```
 
@@ -68,4 +68,16 @@ base_freq <- table(strsplit(sequence_clean, ""))
 print(base_freq)
 ```
 
+# 10 Gráfico de barras con colores básicos
+```{r}
+# Barplot con colores básicos
+barplot(
+  base_freq,
+  main = "Frecuencia de bases en la secuencia",
+  col = c("red", "blue", "green", "yellow"),
+  ylab = "Frecuencia",
+  names.arg = c("A", "T", "C", "G")
+)
+
+```
 
