@@ -2,20 +2,17 @@
 title: "introduccionr_A01646343"
 output: html_document
 ---
-
+# print(name): Álvaro González Martínez A01646343
 # 1
 ```{r}
 dna_generator <- function(n) {
   bases <- c("A", "C", "T", "G")
   
-  # Generar una secuencia aleatoria de longitud n
   sequence <- sample(bases, n, replace = TRUE)
   
-  # Unir las bases para formar la secuencia de ADN
   return(paste(sequence, collapse = ""))
 }
 
-# Ejemplo de uso
 dna_sequence <- dna_generator(15)
 print(dna_sequence)
 
@@ -28,7 +25,6 @@ dna_size <- function(sequence) {
   return(size)
 }
 
-# Example usage
 size <- dna_size(dna_sequence)
 print(size)
 
@@ -37,13 +33,11 @@ print(size)
 # 3 
 ```{r}
 base_percentage <- function(sequence) {
-  # Initialize counters for each base
   A_count <- 0
   T_count <- 0
   C_count <- 0
   G_count <- 0
   
-  # Loop through each base in the sequence and count them
   for (base in strsplit(sequence, NULL)[[1]]) {
     if (base == "A") {
       A_count <- A_count + 1
@@ -56,7 +50,6 @@ base_percentage <- function(sequence) {
     }
   }
   
-  # Calculate the percentage of each base
   size <- nchar(sequence)
   A_percent <- (A_count / size) * 100
   T_percent <- (T_count / size) * 100
@@ -73,15 +66,11 @@ base_percentage(dna_sequence)
 ```
 # 4
 ```{r}
-# Función para transcribir ADN a ARN
 transcribir_adn_a_arn <- function(cadena_adn) {
-  # Tabla
   tabla <- c("G" = "C", "C" = "G", "T" = "A", "A" = "U")
   
-  # Separar la cadena en caracteres
   bases_adn <- strsplit(cadena_adn, "")[[1]]
   
-  # Inicializar cadena ARN vacía
   cadena_arn <- ""
   
   for (base in bases_adn) {
@@ -96,9 +85,7 @@ print(cadena_arn)
 ```
 # 5
 ```{r}
-# Función para traducir ARN a aminoácidos
-traducir_arn_a_aminoacidos <- function(cadena_arn) {
-# Mapa de codones a aminoácidos (simplificado)
+arn_to_aminoacidos <- function(cadena_arn) {
   codones <- list(
   "UUU" = "Fenilalanina", "UUC" = "Fenilalanina",
   "UUA" = "Leucina",      "UUG" = "Leucina",
@@ -136,21 +123,18 @@ traducir_arn_a_aminoacidos <- function(cadena_arn) {
   "GGU" = "Glicina",      "GGC" = "Glicina",
   "GGA" = "Glicina",      "GGG" = "Glicina"
   )
-# Dividimos la cadena ARN en codones
 codones_arn <- strsplit(cadena_arn, "(?<=.{3})", perl = TRUE)[[1]]
-# Traducimos cada codón a su aminoácido
 proteina <- sapply(codones_arn, function(codon) codones[[codon]])
-# Unimos los aminoácidos para formar la proteína
 paste(proteina, collapse = "-")
 }
-# Ejemplo de traducción
-aminoacidos <- traducir_arn_a_aminoacidos(cadena_arn)
+
+aminoacidos <- arn_to_aminoacidos(cadena_arn)
 print(aminoacidos)
 ```
 
 # 6 
 ```{r}
-obtener_hebra_inversa <- function(hebra_directa) {
+hebra_inversa_func <- function(hebra_directa) {
   complemento <- c("A" = "T", "T" = "A", "C" = "G", "G" = "C")
   
   hebra_inversa <- ""  # inicializamos cadena vacía
@@ -158,18 +142,16 @@ obtener_hebra_inversa <- function(hebra_directa) {
   for (i in 1:nchar(hebra_directa)) {
     base <- substr(hebra_directa, i, i)
     base_comp <- complemento[base]
-    # Agregamos al inicio (para que quede invertido)
+    
     hebra_inversa <- paste0(base_comp, hebra_inversa)
   }
   
   return(hebra_inversa)
 }
 
-# Ejemplo
 hebra_directa <- "TGCGATAC"
-hebra_inversa <- obtener_hebra_inversa(hebra_directa)
+hebra_inversa <- hebra_inversa_func(hebra_directa)
 
-# Mostrar resultado
 cat("Hebra directa:  5'-", hebra_directa, "-3'\n", sep = "")
 cat("Hebra inversa:  3'-", hebra_inversa, "-5'\n", sep = "")
 ```
