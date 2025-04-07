@@ -12,9 +12,7 @@ replicar_adn <- function(cadena) {
   paste(cadena_replicada, collapse = "")
 }
 
-# Cadena de ADN original
 cadena_adn <- "ATGCGTACGTTAGC"
-# Replicación del ADN
 cadena_replicada <- replicar_adn(cadena_adn)
 print(cadena_replicada)
 ```
