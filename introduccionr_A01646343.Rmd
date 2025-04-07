@@ -198,6 +198,21 @@ cat("Hebra complementaria:3'-", hebra_complementaria, "-5'\n", sep = "")
 
 # 8 
 ```{r}
+complementaria_inversa <- function(hebra_complementaria) {
+  hebra_inversa <- ""
+  
+  for (i in nchar(hebra_complementaria):1) {
+    base <- substr(hebra_complementaria, i, i)
+    hebra_inversa <- paste0(hebra_inversa, base)
+  }
+  
+  return(hebra_inversa)
+}
+
+hebra_complementaria_inversa <- complementaria_inversa(hebra_complementaria)
+
+cat("Hebra complementaria:       3'-", hebra_complementaria, "-5'\n", sep = "")
+cat("Hebra complementaria inversa:5'-", hebra_complementaria_inversa, "-3'\n", sep = "")
 
 ```
 
