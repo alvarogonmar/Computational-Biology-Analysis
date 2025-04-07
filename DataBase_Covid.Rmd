@@ -5,6 +5,8 @@ output: html_document
 
 # 1 Cargar paquete
 ```{r}
+options(repos = c(CRAN = "https://cran.rstudio.com"))
+install.packages("rentrez")
 # Cargar el paquete rentrez
 install.packages("rentrez")  # Descomenta si no está instalado
 library(rentrez)
@@ -26,10 +28,10 @@ search_results <- entrez_search(
 search_results$ids
 ```
 
-# 4 Descargar una secuencia (puedes elegir otra distinta a la 1)
+# 4 Descargar secuencia 2
 ```{r}
 # Obtener la secuencia correspondiente al segundo ID (por ejemplo)
-sequence_id <- search_results$ids[2]
+sequence_id <- search_results$ids[2] # Seleccionar  secuencia 2
 sequence_data <- entrez_fetch(
   db = "nucleotide",
   id = sequence_id,
@@ -73,12 +75,16 @@ print(base_freq)
 # Barplot con colores básicos
 barplot(
   base_freq,
-  main = "Frecuencia de bases en la secuencia",
-  col = c("red", "blue", "green", "yellow"),
+  main = "Frecuencia de bases (colores básicos)",
+  col = c("tomato", "skyblue", "gold", "palegreen"),
   ylab = "Frecuencia",
   names.arg = c("A", "T", "C", "G")
 )
 ```
+```{r}
+cat("INTERPRETACIÓN DE LA GRÁFICA:,'\nLa base más frecuente en esta secuencia fue 'G'. En segundo lugar, la que más veces aparece es 'A', depués 'C' y la que menos se repite es 'T'")
+```
+
 
 # 11 Gráfico con rainbow()
 ```{r}
@@ -115,5 +121,71 @@ barplot(
   ylab = "Frecuencia",
   names.arg = c("A", "T", "C", "G")
 )
+```
+# Proceso de traduccion y transcripcion
+```{r}
+#TRANSCRIPCIÓN ARN A PROTEÍNA
+traducir_rna_a_proteinas <- function(secuencia_rna) {
+  codones <- list(
+    "AUG"="Met", "UUU"="Phe", "UUC"="Phe", "UUA"="Leu", "UUG"="Leu",
+    "CUU"="Leu", "CUC"="Leu", "CUA"="Leu", "CUG"="Leu",
+    "AUU"="Ile", "AUC"="Ile", "AUA"="Ile",
+    "GUU"="Val", "GUC"="Val", "GUA"="Val", "GUG"="Val",
+    "UCU"="Ser", "UCC"="Ser", "UCA"="Ser", "UCG"="Ser",
+    "CCU"="Pro", "CCC"="Pro", "CCA"="Pro", "CCG"="Pro",
+    "ACU"="Thr", "ACC"="Thr", "ACA"="Thr", "ACG"="Thr",
+    "GCU"="Ala", "GCC"="Ala", "GCA"="Ala", "GCG"="Ala",
+    "UAU"="Tyr", "UAC"="Tyr", "UAA"="STOP", "UAG"="STOP", "UGA"="STOP",
+    "CAU"="His", "CAC"="His", "CAA"="Gln", "CAG"="Gln",
+    "AAU"="Asn", "AAC"="Asn", "AAA"="Lys", "AAG"="Lys",
+    "GAU"="Asp", "GAC"="Asp", "GAA"="Glu", "GAG"="Glu",
+    "UGU"="Cys", "UGC"="Cys", "UGG"="Trp",
+    "CGU"="Arg", "CGC"="Arg", "CGA"="Arg", "CGG"="Arg",
+    "AGU"="Ser", "AGC"="Ser", "AGA"="Arg", "AGG"="Arg",
+    "GGU"="Gly", "GGC"="Gly", "GGA"="Gly", "GGG"="Gly"
+  )
+
+  # Limpiar secuencia de caracteres no válidos
+  secuencia_rna <- gsub("[-N]", "", secuencia_rna)
+
+  # Dividir en codones (de 3 en 3)
+  codones_rna <- strsplit(secuencia_rna, "(?<=.{3})", perl = TRUE)[[1]]
+
+  # Traducir hasta encontrar un codón STOP
+  proteina <- c()
+  for (codon in codones_rna) {
+    aa <- codones[[codon]]
+    if (is.null(aa)) {
+      proteina <- c(proteina, "?")
+    } else if (aa == "STOP") {
+      cat("Se encontró un codón STOP. Traducción terminada.\n")
+      break
+    } else {
+      proteina <- c(proteina, aa)
+    }
+  }
+
+  return(paste(proteina, collapse = "-"))
+}
+
+proteina_traducida <- traducir_rna_a_proteinas(sequence_rna)
+
+cat("\nProteína resultante:\n", proteina_traducida, "\n")
+```
+
+## Preguntas
+```{r}
+#1.¿Qué hace el signo de pesos $ en esta línea "search_results$ids"?
+#El signo de pesos ($) se usa para acceder a un elemento específico de una lista en R. Aquí, search_results es una lista con varias partes, y $ids accede a uno de los elementos de esa lista
+
+#2.¿Cuál es la diferencia entre cat y print?
+#El print Es una función que muestra objetos completos (como vectores, listas, data frames, etc.). Muestra la estructura del objeto (con comillas, saltos de línea, tipo de datos, etc.)
+x <- c("hola", "mundo")
+print(x)
+
+#cat() en R:
+#Significa "concatenate and print". Se usa para mostrar texto sin comillas, ni estructura de objeto. No agrega saltos de línea automáticos (se tienen que poner con \n)
+x <- c("hola", "mundo")
+cat(x)
 ```
 
