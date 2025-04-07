@@ -56,6 +56,11 @@ sequence_clean <- gsub("[^ATCG]", "", sequence_data)
 cat(sequence_clean)
 ```
 
+# 8 Contar frecuencias de bases
+```{r}
+# Contar frecuencia de cada base
+base_freq <- table(strsplit(sequence_clean, ""))
+```
 
 
 
