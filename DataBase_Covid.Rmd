@@ -78,6 +78,17 @@ barplot(
   ylab = "Frecuencia",
   names.arg = c("A", "T", "C", "G")
 )
+```
 
+# 11 Gráfico con rainbow()
+```{r}
+# Usar la función rainbow para los colores
+barplot(
+  base_freq,
+  main = "Frecuencia de bases (colores rainbow)",
+  col = rainbow(4),
+  ylab = "Frecuencia",
+  names.arg = c("A", "T", "C", "G")
+)
 ```
 
