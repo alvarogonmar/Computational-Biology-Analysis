@@ -1,0 +1,22 @@
+---
+title: "DataBase_Covid"
+output: html_document
+---
+
+# 1 Cargar paquete
+```{r}
+# Cargar el paquete rentrez
+# install.packages("rentrez")  # Descomenta si no está instalado
+library(rentrez)
+```
+
+# 2 Buscar secuencias en NCBI
+```{r}
+# Búsqueda de secuencias del SARS-CoV-2 en la base de datos nucleotide
+search_results <- entrez_search(
+  db = "nucleotide",
+  term = "SARS-CoV-2[Organism]",
+  retmax = 10
+)
+```
+
