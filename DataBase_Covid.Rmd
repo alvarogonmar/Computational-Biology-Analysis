@@ -92,3 +92,15 @@ barplot(
 )
 ```
 
+# 12 Gráfico con terrain.colors()
+```{r}
+# Usar terrain.colors
+barplot(
+  base_freq,
+  main = "Frecuencia de bases (terrain colors)",
+  col = terrain.colors(4),
+  ylab = "Frecuencia",
+  names.arg = c("A", "T", "C", "G")
+)
+```
+
