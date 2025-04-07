@@ -26,3 +26,15 @@ search_results <- entrez_search(
 search_results$ids
 ```
 
+# 4 Descargar una secuencia (puedes elegir otra distinta a la 1)
+```{r}
+# Obtener la secuencia correspondiente al segundo ID (por ejemplo)
+sequence_id <- search_results$ids[2]
+sequence_data <- entrez_fetch(
+  db = "nucleotide",
+  id = sequence_id,
+  rettype = "fasta",
+  retmode = "text"
+)
+```
+
