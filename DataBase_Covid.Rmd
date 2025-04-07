@@ -38,3 +38,24 @@ sequence_data <- entrez_fetch(
 )
 ```
 
+# 5 Ver la secuencia en formato FASTA
+```{r}
+# Imprimir secuencia en formato FASTA
+cat(sequence_data)
+```
+
+# 6 Limpiar la secuencia
+```{r}
+# Limpiar la secuencia para obtener solo A, T, C y G
+sequence_clean <- gsub("[^ATCG]", "", sequence_data)
+```
+
+# 7  Mostrar la secuencia limpia
+```{r}
+# Mostrar la secuencia limpia
+cat(sequence_clean)
+```
+
+
+
+
