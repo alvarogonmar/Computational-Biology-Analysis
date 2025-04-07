@@ -148,3 +148,31 @@ aminoacidos <- traducir_arn_a_aminoacidos(cadena_arn)
 print(aminoacidos)
 ```
 
+# 6 
+```{r}
+# Función que construye la hebra inversa complementaria usando un ciclo for
+obtener_hebra_inversa <- function(hebra_directa) {
+  # Tabla de complementariedad
+  complemento <- c("A" = "T", "T" = "A", "C" = "G", "G" = "C")
+  
+  hebra_inversa <- ""  # inicializamos cadena vacía
+  
+  for (i in 1:nchar(hebra_directa)) {
+    base <- substr(hebra_directa, i, i)
+    base_comp <- complemento[base]
+    # Agregamos al inicio (para que quede invertido)
+    hebra_inversa <- paste0(base_comp, hebra_inversa)
+  }
+  
+  return(hebra_inversa)
+}
+
+# Ejemplo
+hebra_directa <- "TGCGATAC"
+hebra_inversa <- obtener_hebra_inversa(hebra_directa)
+
+# Mostrar resultado
+cat("Hebra directa:  5'-", hebra_directa, "-3'\n", sep = "")
+cat("Hebra inversa:  3'-", hebra_inversa, "-5'\n", sep = "")
+```
+
