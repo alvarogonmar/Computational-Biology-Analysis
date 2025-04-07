@@ -62,5 +62,10 @@ cat(sequence_clean)
 base_freq <- table(strsplit(sequence_clean, ""))
 ```
 
+# 9 Mostrar la frecuencia
+```{r}
+# Imprimir frecuencia de bases
+print(base_freq)
+```
 
 
