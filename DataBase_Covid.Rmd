@@ -20,3 +20,9 @@ search_results <- entrez_search(
 )
 ```
 
+# 3 Ver los IDs encontrados
+```{r}
+# Mostrar los IDs de secuencias encontrados
+search_results$ids
+```
+
