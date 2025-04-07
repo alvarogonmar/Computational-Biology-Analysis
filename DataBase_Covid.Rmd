@@ -104,3 +104,16 @@ barplot(
 )
 ```
 
+# 13 Gráfico con RColorBrewer
+```{r}
+# Usar paleta de colores de RColorBrewer
+library(RColorBrewer)
+barplot(
+  base_freq,
+  main = "Frecuencia de bases (RColorBrewer)",
+  col = brewer.pal(4, "Set2"),
+  ylab = "Frecuencia",
+  names.arg = c("A", "T", "C", "G")
+)
+```
+
