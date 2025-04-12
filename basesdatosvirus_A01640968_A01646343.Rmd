@@ -1,0 +1,88 @@
+---
+title: "basesdatosvirus_A01640968_A01646343"
+output: html_document
+---
+
+```{r}
+# Instalar packages
+if (!require("Biostrings")) install.packages("BiocManager")
+if (!require("reshape2", quietly = TRUE)) install.packages("reshape2")
+library(reshape2)
+if (!require("ggplot2", quietly = TRUE)) install.packages("ggplot2")
+library(ggplot2)
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+BiocManager::install("Biostrings")
+
+library(Biostrings)
+```
+
+
+```{r}
+# 📁 Ruta base donde están los archivos .fasta
+ruta_base <- "/Users/alvarogonzalez/Documents/ITC/2_Semestre/2_Periodo/Computational-Biology-Analysis/Virus_DataBase"
+
+# 🧾 Archivos FASTA con ruta completa
+virus_files <- list(
+  Zika = file.path(ruta_base, "zika.fasta"),
+  SARS = file.path(ruta_base, "sars.fasta"),
+  Wuhan = file.path(ruta_base, "wuhan.fasta"),
+  MERS = file.path(ruta_base, "mers.fasta"),
+  Dengue = file.path(ruta_base, "dengue1.fasta"),
+  H1N1 = file.path(ruta_base, "h1n1_segment1.fasta")  # Reemplaza si tienes más segmentos
+)
+
+# 🔍 Función para analizar cada secuencia
+analizar_virus <- function(filepath) {
+  secuencia <- readDNAStringSet(filepath)[[1]]
+  
+  tamano <- length(secuencia)
+  composicion <- alphabetFrequency(secuencia, baseOnly = TRUE)
+  gc_content <- sum(composicion[c("G", "C")]) / tamano * 100
+  complementaria <- as.character(complement(secuencia))
+  
+  list(
+    tamano = tamano,
+    composicion = composicion,
+    GC = round(gc_content, 2),
+    complementaria = substr(complementaria, 1, 60)  # Mostrar solo los primeros 60 nt
+  )
+}
+
+# 🧠 Aplicar análisis a todos los virus
+resultados <- lapply(virus_files, analizar_virus)
+
+# 🖨️ Imprimir resultados
+for (nombre in names(resultados)) {
+  secuencia_texto <- resultados[[nombre]]$complementaria  # Asignar la secuencia complementaria
+  complementaria_texto <- resultados[[nombre]]$complementaria  # Asignar complementaria
+  cat("\n🔬 Virus:", nombre, "\n")
+  cat("🧬 Tamaño de la secuencia:", resultados[[nombre]]$tamano, "nucleótidos\n")
+  cat("🧪 Composición de nucleótidos (A, T, C, G):\n")
+  print(resultados[[nombre]]$composicion)
+  cat("💥 Contenido GC:", resultados[[nombre]]$GC, "%\n")
+  # Mostrar los primeros 60 nucleótidos (como en el ejemplo de la guía)
+  cat("🔡 Secuencia original (primeros 60 nt):\n")
+  cat(substr(secuencia_texto, 1, 60), "\n")
+  cat("🧲 Secuencia complementaria:\n")
+  cat(complementaria_texto, "\n")
+}
+
+# 📊 Preparar datos para gráfica de composición
+compo_df <- do.call(rbind, lapply(names(resultados), function(nombre) {
+  data.frame(
+    Virus = nombre,
+    t(as.data.frame(resultados[[nombre]]$composicion[c("A", "T", "C", "G")]))
+  )
+}))
+
+compo_melt <- melt(compo_df, id.vars = "Virus")
+
+# 📈 Gráfico comparativo de nucleótidos
+ggplot(compo_melt, aes(x = Virus, y = value, fill = variable)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Composición de nucleótidos por virus",
+       y = "Número de nucleótidos", x = "Virus", fill = "Nucleótido") +
+  theme_minimal()
+
+```
+
