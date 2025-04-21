@@ -93,3 +93,22 @@ datos_paises <- subset(covid_19_data, Date==ultimo_dia_datos)
 # Explicar que pasa aqui
 ```
 
+```{r}
+install.packages("stringr")
+library("stringr")
+```
+
+```{r}
+datos_paises <- datos_paises %>%
+  mutate(Country.Region = recode(str_trim(Country.Region),
+                                  "US" = "USA",
+                                  "United Kingdom" = "UK"))
+# Explicar que pasa aqui
+```
+
+```{r}
+china <-datos_paises %>% subset(Country.Region=="China")
+china
+# Explicar que pasa aqui
+```
+
