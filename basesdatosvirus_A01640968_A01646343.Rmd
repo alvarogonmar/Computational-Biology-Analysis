@@ -1,6 +1,8 @@
 ---
 title: "basesdatosvirus_A01640968_A01646343"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r}
@@ -18,10 +20,10 @@ library(Biostrings)
 
 
 ```{r}
-# 📁 Ruta base donde están los archivos .fasta
+# Ruta base donde están los archivos .fasta
 ruta_base <- "/Users/alvarogonzalez/Documents/ITC/2_Semestre/2_Periodo/Computational-Biology-Analysis/Virus_DataBase"
 
-# 🧾 Archivos FASTA con ruta completa
+# Archivos FASTA con ruta completa
 virus_files <- list(
   Zika = file.path(ruta_base, "zika.fasta"),
   SARS = file.path(ruta_base, "sars.fasta"),
@@ -31,53 +33,54 @@ virus_files <- list(
   H1N1 = file.path(ruta_base, "h1n1_segment1.fasta")  # Reemplaza si tienes más segmentos
 )
 
-# 🔍 Función para analizar cada secuencia
+# Función para analizar cada secuencia
 analizar_virus <- function(filepath) {
   secuencia <- readDNAStringSet(filepath)[[1]]
   
   tamano <- length(secuencia)
-  composicion <- alphabetFrequency(secuencia, baseOnly = TRUE)
+  composicion <- alphabetFrequency(secuencia, baseOnly = TRUE)  # Solo bases A, T, C, G
   gc_content <- sum(composicion[c("G", "C")]) / tamano * 100
   complementaria <- as.character(complement(secuencia))
   
   list(
     tamano = tamano,
-    composicion = composicion,
+    composicion = composicion[c("A", "T", "C", "G")],  # Excluir "other"
     GC = round(gc_content, 2),
-    complementaria = substr(complementaria, 1, 60)  # Mostrar solo los primeros 60 nt
+    original = as.character(secuencia),  # Secuencia original completa
+    complementaria = complementaria      # Secuencia complementaria completa
   )
 }
 
-# 🧠 Aplicar análisis a todos los virus
+# Aplicar análisis a todos los virus
 resultados <- lapply(virus_files, analizar_virus)
 
-# 🖨️ Imprimir resultados
+# Imprimir resultados
 for (nombre in names(resultados)) {
-  secuencia_texto <- resultados[[nombre]]$complementaria  # Asignar la secuencia complementaria
-  complementaria_texto <- resultados[[nombre]]$complementaria  # Asignar complementaria
-  cat("\n🔬 Virus:", nombre, "\n")
-  cat("🧬 Tamaño de la secuencia:", resultados[[nombre]]$tamano, "nucleótidos\n")
-  cat("🧪 Composición de nucleótidos (A, T, C, G):\n")
+  secuencia_texto <- resultados[[nombre]]$original           
+  complementaria_texto <- resultados[[nombre]]$complementaria
+  cat("\nVirus:", nombre, "\n")
+  cat("Tamaño de la secuencia:", resultados[[nombre]]$tamano, "nucleótidos\n")
+  cat("Composición de nucleótidos (A, T, C, G):\n")
   print(resultados[[nombre]]$composicion)
-  cat("💥 Contenido GC:", resultados[[nombre]]$GC, "%\n")
-  # Mostrar los primeros 60 nucleótidos (como en el ejemplo de la guía)
-  cat("🔡 Secuencia original (primeros 60 nt):\n")
-  cat(substr(secuencia_texto, 1, 60), "\n")
-  cat("🧲 Secuencia complementaria:\n")
+  cat("Contenido GC:", resultados[[nombre]]$GC, "%\n")
+  # Mostrar la secuencia 
+  cat("Secuencia original :\n")
+  cat(secuencia_texto, "\n")
+  cat("Secuencia complementaria :\n")
   cat(complementaria_texto, "\n")
 }
 
-# 📊 Preparar datos para gráfica de composición
+# Preparar datos para gráfica de composición
 compo_df <- do.call(rbind, lapply(names(resultados), function(nombre) {
   data.frame(
     Virus = nombre,
-    t(as.data.frame(resultados[[nombre]]$composicion[c("A", "T", "C", "G")]))
+    t(as.data.frame(resultados[[nombre]]$composicion))  # Solo A, T, C, G
   )
 }))
 
 compo_melt <- melt(compo_df, id.vars = "Virus")
 
-# 📈 Gráfico comparativo de nucleótidos
+# Gráfico comparativo de nucleótidos
 ggplot(compo_melt, aes(x = Virus, y = value, fill = variable)) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(title = "Composición de nucleótidos por virus",
