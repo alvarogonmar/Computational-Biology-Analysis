@@ -80,3 +80,9 @@ ww_map
 # Explicar que pasa aqui
 ```
 
+```{r}
+ultimo_dia_datos = mexico[nrow(mexico),]$Date
+ultimo_dia_datos
+# Explicar que pasa aqui
+```
+
