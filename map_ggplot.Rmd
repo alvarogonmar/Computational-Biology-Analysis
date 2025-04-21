@@ -3,3 +3,10 @@ title: "map_ggplot"
 output: html_document
 ---
 
+```{r}
+library(ggplot2)
+library(dplyr)
+require(maps)
+require(viridis)
+```
+
