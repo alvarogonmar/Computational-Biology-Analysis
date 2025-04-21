@@ -60,4 +60,9 @@ theme_minimal()
 grafica_mexico
 # Explicar que pasa aqui
 ```
+```{r}
+# Al igual que el Coronavirus COVID-19 Global Cases by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University, crearemos un mapa con los datos de casos confirmados en todo el mundo
+world_map <- map_data("world")
+# extrae toda la informacion de georeferencia que hay de todo el globo y con ggplot puedes generar un mapa
+```
 
