@@ -26,5 +26,17 @@ head(mexico)
 ```
 ```{r}
 str(mexico)
+# Explicar que pasa aqui
+```
+```{r}
+mexico$Date <-as.Date(mexico$Date, "%Y-%m-%d")
+# Explicar que pasa aqui
+```
+
+```{r}
+grafica_mexico <- ggplot(mexico, aes(Date, Confirmed, label = Confirmed)) + geom_point()+
+geom_line() + geom_text( hjust = "right")
+grafica_mexico
+# Explicar que pasa aqui
 ```
 
