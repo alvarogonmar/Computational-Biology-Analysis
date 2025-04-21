@@ -2,7 +2,7 @@
 title: "map_ggplot"
 output: html_document
 ---
-
+# name: Alvaro González Martínez A01646343
 ```{r}
 library(ggplot2)
 library(dplyr)
@@ -13,24 +13,29 @@ require(viridis)
 ```{r}
 covid_19_data <- read.csv(url("https://raw.githubusercontent.com/datasets/covid-19/master/data/time-series-19-covid-combined.csv"))
 # Explicar que pasa aqui
+# Con este codigo, estoy leyendo una base de datos del covid para usarla despues.
 ```
 
 ```{r}
 head(covid_19_data)
 # Explicar que pasa aqui
+# Aqui estoy mostrando las primeras filas de la tabla con los datos de COVID-19.
 ```
 ```{r}
 mexico <- subset(covid_19_data, Country.Region=="Mexico")
 head(mexico)
 # Explicar que pasa aqui
+# En este codigo se esta guardando solo los datos de México en una nueva tabla y se estan mostrando las primeras filas
 ```
 ```{r}
 str(mexico)
 # Explicar que pasa aqui
+# Aqui se muestra cómo está organizada la tabla de México es decir cuántas columnas tiene, qué tipo de datos hay en cada una, y ejemplos.
 ```
 ```{r}
 mexico$Date <-as.Date(mexico$Date, "%Y-%m-%d")
 # Explicar que pasa aqui
+# En esta linea se estan convirtiendo las fechas de la tabla de México al formato de fecha para que se puedan usar en las gráficas
 ```
 
 ```{r}
@@ -38,6 +43,7 @@ grafica_mexico <- ggplot(mexico, aes(Date, Confirmed, label = Confirmed)) + geom
 geom_line() + geom_text( hjust = "right")
 grafica_mexico
 # Explicar que pasa aqui
+# Aqui se esta creando una grafica que muestra cómo suben los casos confirmados de COVID-19 en México.
 ```
 ```{r}
 grafica_mexico <- ggplot(mexico, aes(x = Date)) + geom_line(aes(y = Confirmed, color =
@@ -45,12 +51,14 @@ grafica_mexico <- ggplot(mexico, aes(x = Date)) + geom_line(aes(y = Confirmed, c
 geom_line(aes(y = Deaths ), color = "darkred", linetype = "dotted")+ theme_minimal()
 grafica_mexico
 # Explicar que pasa aqui
+# En este codigo se crea una grafica con líneas que muestra los casos confirmados, recuperados y muertes por COVID-19 en México.
 ```
 ```{r}
 grafica_mexico <- ggplot(mexico, aes(Date, log10(Confirmed ), label = log10(Confirmed ) )) +
 geom_point()+ geom_line() + geom_text(hjust = "right", size = 1.0)
 grafica_mexico
 # Explicar que pasa aqui
+# Se hace una grafica donde los casos confirmados están en escala logarítmica (log base 10) para ver mejor cómo crecen
 ```
 ```{r}
 grafica_mexico <- ggplot(mexico, aes(x = Date)) + geom_line(aes(y = log10(Confirmed), color =
@@ -59,6 +67,7 @@ grafica_mexico <- ggplot(mexico, aes(x = Date)) + geom_line(aes(y = log10(Confir
 theme_minimal()
 grafica_mexico
 # Explicar que pasa aqui
+# Aqui se hace una grafica con líneas que muestra los casos confirmados, recuperados y muertes en México usando escala logarítmica con diferentes colores y estilos.
 ```
 ```{r}
 # Al igual que el Coronavirus COVID-19 Global Cases by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University, crearemos un mapa con los datos de casos confirmados en todo el mundo
@@ -70,6 +79,7 @@ world_map <- map_data("world")
 world_map <- map_data("world")
 head(world_map)
 # Explicar que pasa aqui
+# Aqui se descargan los datos de un mapa mundial y muestra las primeras filas de la información.
 ```
 
 ```{r}
@@ -78,12 +88,14 @@ ww_map<-ggplot(world_map, aes(x = long, y = lat, group = group)) +
 geom_polygon(fill="lightgray", colour = "white")
 ww_map
 # Explicar que pasa aqui
+# Usando la funcion ggplot, se crea un mapa mundial y lo muestra con países en color gris claro y fronteras blancas.
 ```
 
 ```{r}
 ultimo_dia_datos = mexico[nrow(mexico),]$Date
 ultimo_dia_datos
 # Explicar que pasa aqui
+# Aqui se está guardando y mostrando la fecha del último día con datos disponibles de México.
 ```
 
 ```{r}
@@ -91,10 +103,11 @@ covid_19_data$Date <- as.Date(covid_19_data$Date, "%Y-%m-%d")
 datos_paises <- subset(covid_19_data, Date==ultimo_dia_datos)
 (datos_paises)
 # Explicar que pasa aqui
+# Aqui en la primer linea se está convirtiendo las fechas de toda la tabla a formato fecha, luego guarda y muestra los datos del último día disponible para todos los países.
 ```
 
 ```{r}
-install.packages("stringr")
+# install.packages("stringr")
 library("stringr")
 ```
 
@@ -104,12 +117,14 @@ datos_paises <- datos_paises %>%
                                   "US" = "USA",
                                   "United Kingdom" = "UK"))
 # Explicar que pasa aqui
+# En este codigo se están cambiando los nombres de los países para que sean más cortos como "US" por "USA" y "United Kingdom" por "UK".
 ```
 
 ```{r}
 china <-datos_paises %>% subset(Country.Region=="China")
 china
 # Explicar que pasa aqui
+# Aqui se guarda y muestra solo los datos del último día disponibles para China
 ```
 
 ```{r}
@@ -123,5 +138,16 @@ datos_mapa_confirmados <- inner_join(world_map, datos_paises, by = c("region" =
 "Country.Region" ))
 head(datos_mapa_confirmados)
 # Explicar que pasa aqui
+# Aqui se está uniendo el mapa mundial con los datos de casos confirmados por país, para poder graficarlos juntos 
+# despues se muestra las primeras filas del resultado.
+```
+
+```{r}
+mapa_confirmados <- ggplot(data = datos_mapa_confirmados, mapping = aes(x = long, y = lat,
+group = group)) +
+geom_polygon(aes(fill = Confirmed)) +
+scale_fill_distiller(palette ="RdBu", direction = -1) +
+ggtitle("COVID-19 Casos confirmados")
+mapa_confirmados
 ```
 
