@@ -44,5 +44,12 @@ grafica_mexico <- ggplot(mexico, aes(x = Date)) + geom_line(aes(y = Confirmed, c
 "steelblue")) + geom_line(aes(y = Recovered ), color = "springgreen4", linetype = "twodash") +
 geom_line(aes(y = Deaths ), color = "darkred", linetype = "dotted")+ theme_minimal()
 grafica_mexico
+# Explicar que pasa aqui
+```
+```{r}
+grafica_mexico <- ggplot(mexico, aes(Date, log10(Confirmed ), label = log10(Confirmed ) )) +
+geom_point()+ geom_line() + geom_text(hjust = "right", size = 1.0)
+grafica_mexico
+# Explicar que pasa aqui
 ```
 
