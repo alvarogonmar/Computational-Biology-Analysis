@@ -86,3 +86,10 @@ ultimo_dia_datos
 # Explicar que pasa aqui
 ```
 
+```{r}
+covid_19_data$Date <- as.Date(covid_19_data$Date, "%Y-%m-%d")
+datos_paises <- subset(covid_19_data, Date==ultimo_dia_datos)
+(datos_paises)
+# Explicar que pasa aqui
+```
+
