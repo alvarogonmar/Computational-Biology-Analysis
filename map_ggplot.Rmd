@@ -24,4 +24,7 @@ mexico <- subset(covid_19_data, Country.Region=="Mexico")
 head(mexico)
 # Explicar que pasa aqui
 ```
+```{r}
+str(mexico)
+```
 
