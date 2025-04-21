@@ -10,3 +10,18 @@ require(maps)
 require(viridis)
 ```
 
+```{r}
+covid_19_data <- read.csv(url("https://raw.githubusercontent.com/datasets/covid-19/master/data/time-series-19-covid-combined.csv"))
+# Explicar que pasa aqui
+```
+
+```{r}
+head(covid_19_data)
+# Explicar que pasa aqui
+```
+```{r}
+mexico <- subset(covid_19_data, Country.Region=="Mexico")
+head(mexico)
+# Explicar que pasa aqui
+```
+
