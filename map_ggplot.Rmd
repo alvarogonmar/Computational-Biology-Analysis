@@ -72,3 +72,11 @@ head(world_map)
 # Explicar que pasa aqui
 ```
 
+```{r}
+world_map <- map_data("world")
+ww_map<-ggplot(world_map, aes(x = long, y = lat, group = group)) +
+geom_polygon(fill="lightgray", colour = "white")
+ww_map
+# Explicar que pasa aqui
+```
+
