@@ -39,4 +39,10 @@ geom_line() + geom_text( hjust = "right")
 grafica_mexico
 # Explicar que pasa aqui
 ```
+```{r}
+grafica_mexico <- ggplot(mexico, aes(x = Date)) + geom_line(aes(y = Confirmed, color =
+"steelblue")) + geom_line(aes(y = Recovered ), color = "springgreen4", linetype = "twodash") +
+geom_line(aes(y = Deaths ), color = "darkred", linetype = "dotted")+ theme_minimal()
+grafica_mexico
+```
 
