@@ -112,3 +112,16 @@ china
 # Explicar que pasa aqui
 ```
 
+```{r}
+datos_paises <- datos_paises %>% group_by(Country.Region) %>% summarise(Confirmed =
+sum(Confirmed, na.rm = TRUE))
+datos_paises
+```
+
+```{r}
+datos_mapa_confirmados <- inner_join(world_map, datos_paises, by = c("region" =
+"Country.Region" ))
+head(datos_mapa_confirmados)
+# Explicar que pasa aqui
+```
+
