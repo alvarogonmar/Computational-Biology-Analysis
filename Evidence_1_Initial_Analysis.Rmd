@@ -15,9 +15,18 @@ output: html_document
 #   En mi municipio Zamora Michoacán hasta finales de marzo 2025, se habían registrado 6177 casos confirmados, 332 fallecimientos y 5844 personas recuperadas, y Solamente un caso activo en el municipio.
 
 # 2. ¿Cuál fue la primera variante del virus que se propagó a todo el mundo?
+#     La primera viariante del virus SARS-CoV-2 que fue la que logró expandirse por todo el mundo fue la D614G, esta variante nació entre enero y febrero del 2020 y fue caracterizada por que hubo una sustitución en el gen codificante de la proteina S. Esta variante remplazó en tiempo record la cepa original detectada en China y para junio del 2020 ya era la variante dominante a nivel mundial ya que mostró una transmisibilidad muy efectiva
 
 # 3. Cuáles son las otras variantes del virus que existen en otras regiones del mundo?
+#     1. Alfa (B.1.1.7) que fue detectada en Reino Unido a finales del año 2020, era muy transmisiva y además de gravedad ya que tenía 4,1 muertes por 1000 casos.
+#     2. Beta (B.1.351) qe fue identificada en Sudáfrica en diciembre del 2020, esta contenía mutaciones que permitían mayor resistencia a la neutralización por los anticuerpos de las personas vacunadas
+#     3. Gamma (P.1) esta fue detectada en Japón pero era procedente de Brasil y tenía mayor capacidad de evasión inmunológica.
+#     4. Delta (B.1.617.2) esta era procedente de India, y se destacó por causar el mayor número de infecciones más rápido que las anteriores.
+#     Recientemente se detectaron en México las KP.2 y KP.3 que son pertenecientes a la familia ómicron.
 
-# 4. ¿Cómo buscarías información de la variante del virus en tu país? 
+# 4. ¿Cómo buscarías información de la variante del virus en tu país?
+#     Para encontrar información actualizada sobre México, podría consultar el Sistema de Vigilancia Epidemiológica de Enfermedad Respiratoria Viral (SISVER) que da informes semanales sobre casos, variantes y positividad, el Portal de Datos de la Ciudad de México que este publica información por alcaldía y colonias
 
 # 5. Imagina que te encuentras en una situación similar a la de Li Wenliang, médico chino que intentó alertar sobre el brote de coronavirus en su país, pero fue detenido por las autoridades y obligado a retractarse, ¿qué harías en su caso? Selecciona un inciso:a) Lo reportas al centro de investigación o la universidad. b) Lo reportas a la prensa. c) Guardas la información. Elige y justifica tu respuesta
+#     a) Reportarlo al centro de investigación o la universidad. Si yo estuviera en una situación como la del doctor Li Wenliang, elegiría reportar el hallazgo a mi centro de investigación o universidad antes que acudir directamente a la prensa o guardar silencio ya que , como profesional de la salud, mi deber principal sería proteger a la sociedad y alertar a quienes pueden tomar medidas rápidas y efectivas, pero también debo cuidar mi seguridad y la validez de la información y en países donde hay censura, ir a la prensa puede ser muy riesgoso y no siempre garantiza que el mensaje llegue correctamente porque puede ser manipulado por lo tanto al informar a una institución científica, la alerta puede ser más creíble y respaldada por evidencia, lo que ayuda a que las autoridades actúen y, si es necesario, la información se haga pública de manera responsable. El guardar silencio nunca es opción, porque eso pondría en peligro a muchas personas,
+# Así, buscaría cumplir con la ética profesional y proteger a la comunidad, incluso si existen riesgos personales.
