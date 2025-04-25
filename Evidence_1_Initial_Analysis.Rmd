@@ -3,4 +3,12 @@ title: "Evidence_1_Initial_Analysis"
 output: html_document
 ---
 
-# 
+# 1. Investiga, ¿Cuál es la situación actual de COVID-19 a nivel mundial, en México, en tu estado de origen y en tu municipio, alcaldía o colonia? Puedes iniciar tu búsqueda en el sitio de Johns Hopkins
+
+# 2. ¿Cuál fue la primera variante del virus que se propagó a todo el mundo?
+
+# 3. Cuáles son las otras variantes del virus que existen en otras regiones del mundo?
+
+# 4. ¿Cómo buscarías información de la variante del virus en tu país? 
+
+# 5. Imagina que te encuentras en una situación similar a la de Li Wenliang, médico chino que intentó alertar sobre el brote de coronavirus en su país, pero fue detenido por las autoridades y obligado a retractarse, ¿qué harías en su caso? Selecciona un inciso:a) Lo reportas al centro de investigación o la universidad. b) Lo reportas a la prensa. c) Guardas la información. Elige y justifica tu respuesta
