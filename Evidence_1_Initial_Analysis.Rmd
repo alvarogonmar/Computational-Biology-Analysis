@@ -5,6 +5,15 @@ output: html_document
 
 # 1. Investiga, ¿Cuál es la situación actual de COVID-19 a nivel mundial, en México, en tu estado de origen y en tu municipio, alcaldía o colonia? Puedes iniciar tu búsqueda en el sitio de Johns Hopkins
 
+#   A nivel mundial, la situación del COVID-19 actualmente ha cambiado desde los momentos más dificiles de la pandemia. De acuerdo a los datos disponibles del Johns Hopkins hasta marzo de 2023 se habían registrado 676,609,955 casos confirmados y 6,881,955 defunciones por COVID-19 a nivel mundial.
+# La magnitud de la pandemia y el peligro de contagiarte por el virus a disminuido, aunque el virus sigue, ya no es muy peligroso.
+
+#   En México, se ha visto una disminución de casos en los últimos años, de acuerdo a los últimos reportes, al inicio del año se reportaron 1849 casos sospechosos, pero solamente 6 fueron positivos, para mazo, se identificaron 38377 casos sospechosos, los cuales 504 fueron casos confirmados y 15 defunciones, y para abril 1357 casos confirmados. Esto nos está mostrando un aumento gradual de casos de COVID19, pero es menor que en el mismo periodo del 2024.
+
+#   En mi estado de origen que es Michoacán hasta finales de marzo del 2025 se han acumulado 220,973 casos de COVID19 lo que es un 4.58% de la población y se han reportado 8794 fallecimientos, (3.98% de los casos confirmados) y 211,888 personas recuperadas (95.89%). La tasa de positividad en pruebas realizadas es de 35.62%. El número de casos ha estado disminuyendo, aunque actualmente, para el 29 de marzo de 2025, se reportaban 291 casos activos.
+
+#   En mi municipio Zamora Michoacán hasta finales de marzo 2025, se habían registrado 6177 casos confirmados, 332 fallecimientos y 5844 personas recuperadas, y Solamente un caso activo en el municipio.
+
 # 2. ¿Cuál fue la primera variante del virus que se propagó a todo el mundo?
 
 # 3. Cuáles son las otras variantes del virus que existen en otras regiones del mundo?
