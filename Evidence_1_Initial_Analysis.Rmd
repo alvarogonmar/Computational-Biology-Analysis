@@ -38,5 +38,12 @@ output: html_document
 # Reina, J., y Fraile-Ribot, P. (2021). Variantes de SARS-CoV-2, una historia todavía inacabada. Vacunas, 22(3), 208-209. https://doi.org/10.1016/j.vacun.2021.04.001
 # Milenio Digital. (2025, enero 10). ¿Cuántos casos de COVID-19 hay en México a inicios de 2025? [Artículo de noticias]. https://www.milenio.com/salud/cuantos-casos-de-covid-19-en-mexico-inicios-de-2025
 
+```{r}
+# Cargar las librerías necesarias
+library(ape)           # Para manejar secuencias de ADN
+library(Biostrings)    # Para análisis de secuencias biológicas
+library(ggplot2)       # Para visualizar datos
+```
+
 
 
