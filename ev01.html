@@ -568,10 +568,8 @@ variant_to_analyze &lt;- function(filepath) {
   )
 }
 
-# Apply the analysis to all variants
 variant_results &lt;- lapply(files_with_variants, variant_to_analyze)
 
-# Print results
 for (name in names(variant_results)) {
   cat(&quot;\nVariant:&quot;, name, &quot;\n&quot;)
   cat(&quot;Sequence length:&quot;, variant_results[[name]]$size, &quot;nucleotides\n&quot;)
