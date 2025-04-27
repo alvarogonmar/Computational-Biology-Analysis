@@ -45,5 +45,15 @@ library(Biostrings)    # Para análisis de secuencias biológicas
 library(ggplot2)       # Para visualizar datos
 ```
 
+```{r}
+variantes <- list(
+  Alpha = readDNAStringSet("Alpha_B.1.1.7.fasta"),
+  Beta = readDNAStringSet("Beta_B.1.351.fasta"),
+  Gamma = readDNAStringSet("Gamma_P.1.fasta"),
+  Delta = readDNAStringSet("Delta_B.1.617.2.fasta"),
+  Omicron = readDNAStringSet("Omicron_B.1.1.529.fasta")
+)
+```
+
 
 
