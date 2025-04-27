@@ -2,7 +2,7 @@
 title: "Evidence_1_Initial_Analysis"
 output: html_document
 ---
-
+## Name: Alvaro González Martínez A01646343
 # 1. Investiga, ¿Cuál es la situación actual de COVID-19 a nivel mundial, en México, en tu estado de origen y en tu municipio, alcaldía o colonia? Puedes iniciar tu búsqueda en el sitio de Johns Hopkins
 
 #   A nivel mundial, la situación del COVID-19 actualmente ha cambiado desde los momentos más dificiles de la pandemia. De acuerdo a los datos disponibles del Johns Hopkins hasta marzo de 2023 se habían registrado 676,609,955 casos confirmados y 6,881,955 defunciones por COVID-19 a nivel mundial.
@@ -54,8 +54,7 @@ library(ggplot2)
 # Base path where the .fasta files are located
 ruta_base <- "/Users/alvarogonzalez/Documents/ITC/2_Semestre/2_Periodo/Computational-Biology-Analysis/SARS_CoV_2_FASTA"
 
-# FASTA files with full paths for SARS-CoV-2 variants
-variant_files <- list(
+files_with_variants <- list(
   Alpha = file.path(ruta_base, "Alpha_B.1.1.7.fasta"),
   Beta = file.path(ruta_base, "Beta_B.1.351.fasta"),
   Gamma = file.path(ruta_base, "Gamma_P.1.fasta"),
@@ -64,7 +63,7 @@ variant_files <- list(
 )
 
 # Function to analyze each variant
-analyze_variant <- function(filepath) {
+variant_to_analyze <- function(filepath) {
   sequence <- readDNAStringSet(filepath)[[1]]
   
   size <- length(sequence)
@@ -82,7 +81,7 @@ analyze_variant <- function(filepath) {
 }
 
 # Apply the analysis to all variants
-variant_results <- lapply(variant_files, analyze_variant)
+variant_results <- lapply(files_with_variants, variant_to_analyze)
 
 # Print results
 for (name in names(variant_results)) {
@@ -99,7 +98,6 @@ for (name in names(variant_results)) {
 ```
 
 ```{r}
-# Prepare data for nucleotide composition plot
 composition_df <- do.call(rbind, lapply(names(variant_results), function(name) {
   data.frame(
     Variant = name,
@@ -109,10 +107,9 @@ composition_df <- do.call(rbind, lapply(names(variant_results), function(name) {
 
 composition_melt <- melt(composition_df, id.vars = "Variant")
 
-# Comparative nucleotide composition plot
 ggplot(composition_melt, aes(x = Variant, y = value, fill = variable)) +
   geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Nucleotide Composition per SARS-CoV-2 Variant",
+  labs(title = "Nucleotide Composition SARS-CoV-2 Variants",
        y = "Number of Nucleotides", x = "Variant", fill = "Nucleotide") +
   theme_minimal()
 ```
