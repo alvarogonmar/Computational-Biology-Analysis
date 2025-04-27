@@ -53,6 +53,14 @@ variantes <- list(
   Delta = readDNAStringSet("Delta_B.1.617.2.fasta"),
   Omicron = readDNAStringSet("Omicron_B.1.1.529.fasta")
 )
+
+results <- data.frame(
+  Variant = character(),
+  Length = numeric(),
+  GC_Content = numeric(),
+  stringsAsFactors = FALSE
+)
+
 ```
 
 
