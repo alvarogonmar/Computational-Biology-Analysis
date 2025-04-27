@@ -3,40 +3,40 @@ title: "Evidence_1_Initial_Analysis"
 output: html_document
 ---
 ## Name: Alvaro González Martínez A01646343
-# 1. Investiga, ¿Cuál es la situación actual de COVID-19 a nivel mundial, en México, en tu estado de origen y en tu municipio, alcaldía o colonia? Puedes iniciar tu búsqueda en el sitio de Johns Hopkins
+### 1. Investiga, ¿Cuál es la situación actual de COVID-19 a nivel mundial, en México, en tu estado de origen y en tu municipio, alcaldía o colonia? Puedes iniciar tu búsqueda en el sitio de Johns Hopkins
 
-#   A nivel mundial, la situación del COVID-19 actualmente ha cambiado desde los momentos más dificiles de la pandemia. De acuerdo a los datos disponibles del Johns Hopkins hasta marzo de 2023 se habían registrado 676,609,955 casos confirmados y 6,881,955 defunciones por COVID-19 a nivel mundial.
-# La magnitud de la pandemia y el peligro de contagiarte por el virus a disminuido, aunque el virus sigue, ya no es muy peligroso.
+###   A nivel mundial, la situación del COVID-19 actualmente ha cambiado desde los momentos más dificiles de la pandemia. De acuerdo a los datos disponibles del Johns Hopkins hasta marzo de 2023 se habían registrado 676,609,955 casos confirmados y 6,881,955 defunciones por COVID-19 a nivel mundial.
+### La magnitud de la pandemia y el peligro de contagiarte por el virus a disminuido, aunque el virus sigue, ya no es muy peligroso.
 
-#   En México, se ha visto una disminución de casos en los últimos años, de acuerdo a los últimos reportes, al inicio del año se reportaron 1849 casos sospechosos, pero solamente 6 fueron positivos, para mazo, se identificaron 38377 casos sospechosos, los cuales 504 fueron casos confirmados y 15 defunciones, y para abril 1357 casos confirmados. Esto nos está mostrando un aumento gradual de casos de COVID19, pero es menor que en el mismo periodo del 2024.
+###   En México, se ha visto una disminución de casos en los últimos años, de acuerdo a los últimos reportes, al inicio del año se reportaron 1849 casos sospechosos, pero solamente 6 fueron positivos, para mazo, se identificaron 38377 casos sospechosos, los cuales 504 fueron casos confirmados y 15 defunciones, y para abril 1357 casos confirmados. Esto nos está mostrando un aumento gradual de casos de COVID19, pero es menor que en el mismo periodo del 2024.
 
-#   En mi estado de origen que es Michoacán hasta finales de marzo del 2025 se han acumulado 220,973 casos de COVID19 lo que es un 4.58% de la población y se han reportado 8794 fallecimientos, (3.98% de los casos confirmados) y 211,888 personas recuperadas (95.89%). La tasa de positividad en pruebas realizadas es de 35.62%. El número de casos ha estado disminuyendo, aunque actualmente, para el 29 de marzo de 2025, se reportaban 291 casos activos.
+###   En mi estado de origen que es Michoacán hasta finales de marzo del 2025 se han acumulado 220,973 casos de COVID19 lo que es un 4.58% de la población y se han reportado 8794 fallecimientos, (3.98% de los casos confirmados) y 211,888 personas recuperadas (95.89%). La tasa de positividad en pruebas realizadas es de 35.62%. El número de casos ha estado disminuyendo, aunque actualmente, para el 29 de marzo de 2025, se reportaban 291 casos activos.
 
-#   En mi municipio Zamora Michoacán hasta finales de marzo 2025, se habían registrado 6177 casos confirmados, 332 fallecimientos y 5844 personas recuperadas, y Solamente un caso activo en el municipio.
+###   En mi municipio Zamora Michoacán hasta finales de marzo 2025, se habían registrado 6177 casos confirmados, 332 fallecimientos y 5844 personas recuperadas, y Solamente un caso activo en el municipio.
 
-# 2. ¿Cuál fue la primera variante del virus que se propagó a todo el mundo?
-#     La primera viariante del virus SARS-CoV-2 que fue la que logró expandirse por todo el mundo fue la D614G, esta variante nació entre enero y febrero del 2020 y fue caracterizada por que hubo una sustitución en el gen codificante de la proteina S. Esta variante remplazó en tiempo record la cepa original detectada en China y para junio del 2020 ya era la variante dominante a nivel mundial ya que mostró una transmisibilidad muy efectiva
+### 2. ¿Cuál fue la primera variante del virus que se propagó a todo el mundo?
+###     La primera viariante del virus SARS-CoV-2 que fue la que logró expandirse por todo el mundo fue la D614G, esta variante nació entre enero y febrero del 2020 y fue caracterizada por que hubo una sustitución en el gen codificante de la proteina S. Esta variante remplazó en tiempo record la cepa original detectada en China y para junio del 2020 ya era la variante dominante a nivel mundial ya que mostró una transmisibilidad muy efectiva
 
-# 3. Cuáles son las otras variantes del virus que existen en otras regiones del mundo?
-#     1. Alfa (B.1.1.7) que fue detectada en Reino Unido a finales del año 2020, era muy transmisiva y además de gravedad ya que tenía 4,1 muertes por 1000 casos.
-#     2. Beta (B.1.351) qe fue identificada en Sudáfrica en diciembre del 2020, esta contenía mutaciones que permitían mayor resistencia a la neutralización por los anticuerpos de las personas vacunadas
-#     3. Gamma (P.1) esta fue detectada en Japón pero era procedente de Brasil y tenía mayor capacidad de evasión inmunológica.
-#     4. Delta (B.1.617.2) esta era procedente de India, y se destacó por causar el mayor número de infecciones más rápido que las anteriores.
-#     Recientemente se detectaron en México las KP.2 y KP.3 que son pertenecientes a la familia ómicron.
+### 3. Cuáles son las otras variantes del virus que existen en otras regiones del mundo?
+###     1. Alfa (B.1.1.7) que fue detectada en Reino Unido a finales del año 2020, era muy transmisiva y además de gravedad ya que tenía 4,1 muertes por 1000 casos.
+###     2. Beta (B.1.351) qe fue identificada en Sudáfrica en diciembre del 2020, esta contenía mutaciones que permitían mayor resistencia a la neutralización por los anticuerpos de las personas vacunadas
+###     3. Gamma (P.1) esta fue detectada en Japón pero era procedente de Brasil y tenía mayor capacidad de evasión inmunológica.
+###     4. Delta (B.1.617.2) esta era procedente de India, y se destacó por causar el mayor número de infecciones más rápido que las anteriores.
+###     Recientemente se detectaron en México las KP.2 y KP.3 que son pertenecientes a la familia ómicron.
 
-# 4. ¿Cómo buscarías información de la variante del virus en tu país?
-#     Para encontrar información actualizada sobre México, podría consultar el Sistema de Vigilancia Epidemiológica de Enfermedad Respiratoria Viral (SISVER) que da informes semanales sobre casos, variantes y positividad, el Portal de Datos de la Ciudad de México que este publica información por alcaldía y colonias
+### 4. ¿Cómo buscarías información de la variante del virus en tu país?
+###     Para encontrar información actualizada sobre México, podría consultar el Sistema de Vigilancia Epidemiológica de Enfermedad Respiratoria Viral (SISVER) que da informes semanales sobre casos, variantes y positividad, el Portal de Datos de la Ciudad de México que este publica información por alcaldía y colonias
 
-# 5. Imagina que te encuentras en una situación similar a la de Li Wenliang, médico chino que intentó alertar sobre el brote de coronavirus en su país, pero fue detenido por las autoridades y obligado a retractarse, ¿qué harías en su caso? Selecciona un inciso:a) Lo reportas al centro de investigación o la universidad. b) Lo reportas a la prensa. c) Guardas la información. Elige y justifica tu respuesta
-#     a) Reportarlo al centro de investigación o la universidad. Si yo estuviera en una situación como la del doctor Li Wenliang, elegiría reportar el hallazgo a mi centro de investigación o universidad antes que acudir directamente a la prensa o guardar silencio ya que , como profesional de la salud, mi deber principal sería proteger a la sociedad y alertar a quienes pueden tomar medidas rápidas y efectivas, pero también debo cuidar mi seguridad y la validez de la información y en países donde hay censura, ir a la prensa puede ser muy riesgoso y no siempre garantiza que el mensaje llegue correctamente porque puede ser manipulado por lo tanto al informar a una institución científica, la alerta puede ser más creíble y respaldada por evidencia, lo que ayuda a que las autoridades actúen y, si es necesario, la información se haga pública de manera responsable. El guardar silencio nunca es opción, porque eso pondría en peligro a muchas personas.
-# Así, buscaría cumplir con la ética profesional y proteger a la comunidad, incluso si existen riesgos personales.
+### 5. Imagina que te encuentras en una situación similar a la de Li Wenliang, médico chino que intentó alertar sobre el brote de coronavirus en su país, pero fue detenido por las autoridades y obligado a retractarse, ¿qué harías en su caso? Selecciona un inciso:a) Lo reportas al centro de investigación o la universidad. b) Lo reportas a la prensa. c) Guardas la información. Elige y justifica tu respuesta
+###     a) Reportarlo al centro de investigación o la universidad. Si yo estuviera en una situación como la del doctor Li Wenliang, elegiría reportar el hallazgo a mi centro de investigación o universidad antes que acudir directamente a la prensa o guardar silencio ya que , como profesional de la salud, mi deber principal sería proteger a la sociedad y alertar a quienes pueden tomar medidas rápidas y efectivas, pero también debo cuidar mi seguridad y la validez de la información y en países donde hay censura, ir a la prensa puede ser muy riesgoso y no siempre garantiza que el mensaje llegue correctamente porque puede ser manipulado por lo tanto al informar a una institución científica, la alerta puede ser más creíble y respaldada por evidencia, lo que ayuda a que las autoridades actúen y, si es necesario, la información se haga pública de manera responsable. El guardar silencio nunca es opción, porque eso pondría en peligro a muchas personas.
+### Así, buscaría cumplir con la ética profesional y proteger a la comunidad, incluso si existen riesgos personales.
 
-# Referencias:
-# Secretaría de Salud. (2025, enero 6). Informe semanal de la COVID-19, influenza y otros virus respiratorios, 2025. Semana epidemiológica 01 [Informe]. Gobierno de México. https://www.gob.mx/cms/uploads/attachment/file/965118/Informe_semanal_ERV_SE01_2025_06.01.2025.pdf
-# Secretaría de Salud. (2025, marzo 3). Informe semanal de la COVID-19, influenza y otros virus respiratorios, 2025. Semana epidemiológica 09 [Informe]. Gobierno de México. https://www.gob.mx/cms/uploads/attachment/file/981470/Informe_semanal_ERV_SE09_2025_03.03.2025.pdf
-# Gobierno de la Ciudad de México. (s. f.). Datos abiertos COVID-19. Portal de Datos Abiertos de la CDMX. Recuperado el 24 de abril de 2025 de https://datos.cdmx.gob.mx/group/covid-19
-# Reina, J., y Fraile-Ribot, P. (2021). Variantes de SARS-CoV-2, una historia todavía inacabada. Vacunas, 22(3), 208-209. https://doi.org/10.1016/j.vacun.2021.04.001
-# Milenio Digital. (2025, enero 10). ¿Cuántos casos de COVID-19 hay en México a inicios de 2025? [Artículo de noticias]. https://www.milenio.com/salud/cuantos-casos-de-covid-19-en-mexico-inicios-de-2025
+## Referencias:
+### Secretaría de Salud. (2025, enero 6). Informe semanal de la COVID-19, influenza y otros virus respiratorios, 2025. Semana epidemiológica 01 [Informe]. Gobierno de México. https://www.gob.mx/cms/uploads/attachment/file/965118/Informe_semanal_ERV_SE01_2025_06.01.2025.pdf
+### Secretaría de Salud. (2025, marzo 3). Informe semanal de la COVID-19, influenza y otros virus respiratorios, 2025. Semana epidemiológica 09 [Informe]. Gobierno de México. https://www.gob.mx/cms/uploads/attachment/file/981470/Informe_semanal_ERV_SE09_2025_03.03.2025.pdf
+### Gobierno de la Ciudad de México. (s. f.). Datos abiertos COVID-19. Portal de Datos Abiertos de la CDMX. Recuperado el 24 de abril de 2025 de https://datos.cdmx.gob.mx/group/covid-19
+### Reina, J., y Fraile-Ribot, P. (2021). Variantes de SARS-CoV-2, una historia todavía inacabada. Vacunas, 22(3), 208-209. https://doi.org/10.1016/j.vacun.2021.04.001
+### Milenio Digital. (2025, enero 10). ¿Cuántos casos de COVID-19 hay en México a inicios de 2025? [Artículo de noticias]. https://www.milenio.com/salud/cuantos-casos-de-covid-19-en-mexico-inicios-de-2025
 
 ```{r}
 if (!require("Biostrings")) install.packages("BiocManager")
@@ -80,10 +80,8 @@ variant_to_analyze <- function(filepath) {
   )
 }
 
-# Apply the analysis to all variants
 variant_results <- lapply(files_with_variants, variant_to_analyze)
 
-# Print results
 for (name in names(variant_results)) {
   cat("\nVariant:", name, "\n")
   cat("Sequence length:", variant_results[[name]]$size, "nucleotides\n")
