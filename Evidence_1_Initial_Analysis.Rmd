@@ -39,29 +39,82 @@ output: html_document
 # Milenio Digital. (2025, enero 10). ¿Cuántos casos de COVID-19 hay en México a inicios de 2025? [Artículo de noticias]. https://www.milenio.com/salud/cuantos-casos-de-covid-19-en-mexico-inicios-de-2025
 
 ```{r}
-# Cargar las librerías necesarias
-library(ape)           # Para manejar secuencias de ADN
-library(Biostrings)    # Para análisis de secuencias biológicas
-library(ggplot2)       # Para visualizar datos
+if (!require("Biostrings")) install.packages("BiocManager")
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+if (!require("reshape2", quietly = TRUE)) install.packages("reshape2")
+if (!require("ggplot2", quietly = TRUE)) install.packages("ggplot2")
+
+library(Biostrings)
+library(reshape2)
+library(ggplot2)
 ```
 
 ```{r}
-variantes <- list(
-  Alpha = readDNAStringSet("Alpha_B.1.1.7.fasta"),
-  Beta = readDNAStringSet("Beta_B.1.351.fasta"),
-  Gamma = readDNAStringSet("Gamma_P.1.fasta"),
-  Delta = readDNAStringSet("Delta_B.1.617.2.fasta"),
-  Omicron = readDNAStringSet("Omicron_B.1.1.529.fasta")
+
+# Base path where the .fasta files are located
+ruta_base <- "/Users/alvarogonzalez/Documents/ITC/2_Semestre/2_Periodo/Computational-Biology-Analysis/SARS_CoV_2_FASTA"
+
+# FASTA files with full paths for SARS-CoV-2 variants
+variant_files <- list(
+  Alpha = file.path(ruta_base, "Alpha_B.1.1.7.fasta"),
+  Beta = file.path(ruta_base, "Beta_B.1.351.fasta"),
+  Gamma = file.path(ruta_base, "Gamma_P.1.fasta"),
+  Delta = file.path(ruta_base, "Delta_B.1.617.2.fasta"),
+  Omicron = file.path(ruta_base, "Omicron_B.1.1.529.fasta")
 )
 
-results <- data.frame(
-  Variant = character(),
-  Length = numeric(),
-  GC_Content = numeric(),
-  stringsAsFactors = FALSE
-)
+# Function to analyze each variant
+analyze_variant <- function(filepath) {
+  sequence <- readDNAStringSet(filepath)[[1]]
+  
+  size <- length(sequence)
+  composition <- alphabetFrequency(sequence, baseOnly = TRUE)
+  gc_content <- sum(composition[c("G", "C")]) / size * 100
+  antisense <- as.character(reverseComplement(sequence))
+  
+  list(
+    size = size,
+    composition = composition[c("A", "T", "C", "G")],
+    GC = round(gc_content, 2),
+    original = as.character(sequence),
+    antisense = antisense
+  )
+}
 
+# Apply the analysis to all variants
+variant_results <- lapply(variant_files, analyze_variant)
+
+# Print results
+for (name in names(variant_results)) {
+  cat("\nVariant:", name, "\n")
+  cat("Sequence length:", variant_results[[name]]$size, "nucleotides\n")
+  cat("Nucleotide composition (A, T, C, G):\n")
+  print(variant_results[[name]]$composition)
+  cat("GC content:", variant_results[[name]]$GC, "%\n")
+  cat("Original sequence:\n")
+  cat(variant_results[[name]]$original, "\n")
+  cat("Antisense sequence:\n")
+  cat(variant_results[[name]]$antisense, "\n")
+}
 ```
 
+```{r}
+# Prepare data for nucleotide composition plot
+composition_df <- do.call(rbind, lapply(names(variant_results), function(name) {
+  data.frame(
+    Variant = name,
+    t(as.data.frame(variant_results[[name]]$composition))
+  )
+}))
 
+composition_melt <- melt(composition_df, id.vars = "Variant")
 
+# Comparative nucleotide composition plot
+ggplot(composition_melt, aes(x = Variant, y = value, fill = variable)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Nucleotide Composition per SARS-CoV-2 Variant",
+       y = "Number of Nucleotides", x = "Variant", fill = "Nucleotide") +
+  theme_minimal()
+```
+# Interpretación de la gráfica:
+# Esta gráfica compara la cantidad de A T C G que tiene cada variante de SARS-CoV-2, la gráfica para cada variante a simple vista se ven iguales, aunque no lo son, simplemente tienen una diferencia de nada, para saber bien que cantidad tiene cada uno, no creo que esta gráfica nos sirva muy bien ya que no podemos distinguir las diferencias.
